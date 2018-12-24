@@ -1,0 +1,53 @@
+@mixin  banner {
+
+    width: 100%;
+    position: relative;
+    color: white;
+    .banner-content{
+        position: absolute;
+        top: 50px;
+        width: 100%;
+    }
+    img{
+        width: 100%;
+    }
+
+    span{
+        font-size: $bannerheading;
+        text-transform: uppercase;
+        display: block;
+        font-weight: bold;
+    }
+    span.title{
+        margin-bottom:30px ;
+        font-weight: normal
+
+    }
+    
+}
+
+@mixin  clearfix {
+    &:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+@mixin grid($col ,$mgn) {
+    float: left;
+    margin-right: $mgn;
+    margin-bottom :$mgn;
+    width: ((100%-(($col - 1)*$mgn))/$col);
+    &:nth-child(#{$col}n){
+        margin-right: 0;
+    }
+    
+}
+
+@mixin mq($arg){
+@media screen and (max-width:$arg) {
+    @content
+}
+
+}
